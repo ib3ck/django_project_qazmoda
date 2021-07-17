@@ -1,0 +1,301 @@
+body {
+    background-color: hsl(0, 0%, 98%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(0, 0%, 30%);
+}
+
+.box-element {
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+}
+
+.product {
+    border-radius: 0 0 4px 4px;
+
+}
+
+.bg-dark {
+    background-color: #4f868c !important;
+}
+
+#cart-icon {
+    width: 25px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+#cart-total {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+    width: 20px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12 {
+    margin-top: 10px;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.row-image {
+    width: 100px;
+}
+
+.form-field {
+    width: 250px;
+    display: inline-block;
+    padding: 5px;
+}
+
+.cart-row {
+    display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ececec;
+
+}
+
+.quantity {
+    display: inline-block;
+    font-weight: 700;
+    padding-right: 10px;
+
+
+}
+
+.chg-quantity {
+    width: 12px;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    transition: .1s;
+}
+
+.chg-quantity:hover {
+    opacity: .6;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+/* NAVBAR STYLES */
+
+nav {
+    background-color: #ececec;
+    font-family: "Yu Gothic Medium";
+    font-size: large;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+}
+
+#logo {
+    margin-right: 5em;
+    font-size: larger;
+    font-weight: bold;
+    font-family: "Roboto Thin";
+    color: black;
+}
+
+#logo:hover {
+    color: #4b4b4b;
+}
+
+.nav__link {
+    color: black;
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: #4b4b4b;
+}
+
+
+/* FOOTER STYLES */
+
+footer {
+    background-color: #ececec;
+    width: 100%;
+    font-size: medium;
+    font-family: "Yu Gothic Medium";
+}
+
+.footer__copyright {
+    width: 100%;
+}
+
+#qazmoda {
+    font-family: "Roboto Thin";
+    font-weight: bold;
+    font-size: large;
+}
+
+.footer__anchor {
+    color: black;
+}
+
+.footer__anchor:hover {
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+/* STORE PAGE */
+
+.femaleshop {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    border: white solid 1px;
+    background-blend-mode: multiply;
+    background-color: #afaeae;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 540px;
+    align-self: center;
+    text-align: center;
+    color: #ececec;
+    font-family: "Roboto Thin";
+}
+
+#femalechoose {
+    position: center;
+    margin-top: 250px;
+    font-size: 35px;
+}
+
+
+.smallpics {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.pics {
+    height: 100%;
+    width: 100%;
+}
+
+.pics__paragraph {
+    position: absolute;
+    margin: 2em;
+    padding: 1em;
+    height: fit-content;
+    width: fit-content;
+    background-color: #fff;
+    opacity: 0.5;
+    font-weight: bold;
+    font-size: large;
+}
+
+.pics__paragraph:hover {
+    animation-name: opacity1;
+    animation-duration: 1s;
+}
+
+@keyframes opacity1 {
+    0% {opacity: 0.5}
+    10% {opacity: 0.6}
+    20% {opacity: 0.7}
+    30% {opacity: 0.8}
+    40% {opacity: 0.9}
+    50% {opacity: 1}
+    60% {opacity: 0.9}
+    70% {opacity: 0.8}
+    80% {opacity: 0.7}
+    90% {opacity: 0.6}
+    100% {opacity: 0.5}
+}
+
+.maleshop {
+    margin-top: 4em;
+    margin-bottom: 4em;
+    border: white solid 1px;
+    background-blend-mode: multiply;
+    background-color: #afaeae;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 667px;
+    align-self: center;
+    text-align: center;
+    color: #ececec;
+    font-family: "Roboto Thin";
+}
+
+#malechoose {
+    position: center;
+    margin-top: 320px;
+    font-size: 40px;
+}
+
+.contact {
+    font-family: "Yu Gothic Medium";
+}
+
+.contact__email {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.contact__password {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.maleproducts__h2 {
+    text-align: center;
+    font-family: "Yu Gothic Medium";
+    font-weight: bold;
+    margin: 1em;
+}
+
+.male__actual {
+    height: fit-content;
+    width: fit-content;
+    font-family: "Yu Gothic Medium";
+}
+
+.male__actual__img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.male__popular {
+    width: fit-content;
+    height: fit-content;
+    font-family: "Yu Gothic Medium";
+    text-align: center;
+}
+
+.male__popular__img {
+    height: 100%;
+    width: 100%;
+    border-radius: 20%;
+    border: 1px solid white;
+}

@@ -1,0 +1,165 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 mb-3 mt-3">
+                <form action="" method="get">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <span class="badge badge badge-dark">Name:</span>
+                            {{ myFilter.form.name }}
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-secondary ml-2">Search</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" id="extend-filter" class="btn btn-link">Extended filtering</button>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center hidden mt-3" id="extended-filters">
+                        <div class="col-auto">
+                            <span class="badge badge badge-dark">Price from:</span>
+                            {{ myFilter.form.price_from }}
+                        </div>
+                        <div class="col-auto">
+                            <span class="badge badge badge-dark">Price to:</span>
+                            {{ myFilter.form.price_to }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="box-element product">
+                        <img class="thumbnail" src="{% static product.imageURL %}" alt="">
+                        <div class="box-element product">
+                            <h6><strong>{{ product.name }}</strong></h6>
+                            <hr>
+                            <button data-product="{{ product.id }}" data-action="add"
+                                    class="btn btn-outline-secondary add-btn update-cart">Add to Cart
+                            </button>
+                            <a class="btn btn-outline-success" href="{% url 'product' product.id %}">View</a>
+                            <h4 style="display: inline-block; float: right"><strong>{{ product.price|floatformat:2 }}
+                                USD</strong></h4>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if department.id == 2 %}
+                <div class="container mt-3">
+                    <h2 class="maleproducts__h2">Actual Now</h2>
+                    <div class="row">
+                        <div class="col-md-4 male__actual">
+                            <img class="male__actual__img" src="{% static 'images/maleactual1.png' %}" alt="">
+                            <p class="male__actual__p m-2">Light Coats</p>
+                        </div>
+                        <div class="col-md-4 male__actual">
+                            <img class="male__actual__img" src="{% static 'images/maleactual2.png' %}" alt="">
+                            <p class="male__actual__p m-2">Sandals</p>
+                        </div>
+                        <div class="col-md-4 male__actual">
+                            <img class="male__actual__img" src="{% static 'images/maleactual3.png' %}" alt="">
+                            <p class="male__actual__p m-2">New Shirts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-3">
+                    <h2 class="maleproducts__h2 mt-5">Popular clothes</h2>
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/T/O/TO263EMIVTW5_11293182_1_v1_2x.jpg" alt="">
+                            <p class="male__popular__p">T-shirts</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/N/I/NI464AMHVRB7_11445470_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Sneakers</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/O/R/OR010BMINZP3_10499333_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Backpacks</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/G/I/GI636DUDDNY3_7580961_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Sunglasses</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/T/O/TO263CMIYVW2_11567491_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Caps</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/H/E/HE002EMJGFZ7_11008772_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Pants</p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="container mt-3">
+                    <h2 class="maleproducts__h2">Actual Now</h2>
+                    <div class="row">
+                        <div class="col-md-4 male__actual">
+                            <img class="male__actual__img" src="{% static 'images/femaleactual1.png' %}" alt="">
+                            <p class="male__actual__p m-2">Total Denim</p>
+                        </div>
+                        <div class="col-md-4 male__actual">
+                            <img class="male__actual__img" src="{% static 'images/femaleactual2.png' %}" alt="">
+                            <p class="male__actual__p m-2">Beauty in Your Hands</p>
+                        </div>
+                        <div class="col-md-4 male__actual">
+                            <img class="male__actual__img" src="{% static 'images/femaleactual3.png' %}" alt="">
+                            <p class="male__actual__p m-2">Closer to Nature</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-3">
+                    <h2 class="maleproducts__h2 mt-5">Popular clothes</h2>
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/V/I/VI004EWHSOA6_11211631_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Dresses</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/X/P/XP001AWIFAW6_10764101_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Sneakers</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/M/I/MI048BWFREI7_9437731_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Bags</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/L/O/LO416DWERHV2_8247610_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Sunglasses</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/T/H/TH009LWETT02_2337869_1_v2.jpg" alt="">
+                            <p class="male__popular__p">Beauty</p>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 male__popular">
+                            <img class="male__popular__img"
+                                 src="https://a.lmcdn.ru/img600x866/M/A/MA002EWJWNO8_11524738_1_v1.jpg" alt="">
+                            <p class="male__popular__p">Jeans</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        document.getElementById('extend-filter').addEventListener('click', function (e) {
+            document.getElementById('extended-filters').classList.remove('hidden')
+        })
+    </script>
+{% endblock %}

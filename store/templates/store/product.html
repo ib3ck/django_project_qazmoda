@@ -1,0 +1,25 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <table class="tab mt-5 mb-5">
+            <tr>
+                <td>
+                    <img src="{{ product.imageURL }}" width="70%">
+                </td>
+
+                <td>
+                    <h2>Item ID#: {{ product.id }}</h2>
+                    <h2>Item Name: {{ product.name }}</h2>
+                    <h2>Cost: ${{ product.price }}</h2>
+                    <h2>Number of views: {{ product.num_views }}</h2>
+                    <h2>Gender: {{ product.gender }}</h2>
+                    <br>
+                    <button data-product="{{ product.id }}" data-action="add"
+                            class="btn btn-outline-secondary add-btn update-cart">Add to Cart
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

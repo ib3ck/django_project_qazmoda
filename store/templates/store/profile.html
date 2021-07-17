@@ -1,0 +1,80 @@
+{% extends 'store/main.html' %}
+
+{% block content %}
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md mb-3">
+                <div class="card card-body">
+                    <h5 class="mb-3">Customer: {{ customer.name }}</h5>
+                    <img height="100%" width="100%" src="{{ customer.profile_pic.url }}" alt="">
+                    <hr>
+                    <button id="update-customer" class="btn btn-outline-info  btn-sm btn-block">Update Customer</button>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card card-body">
+                    <h5>Contact Information</h5>
+                    <hr>
+                    <p>Username: {{ customer.user }}</p>
+                    <p>Name: {{ customer.name }}</p>
+                    <p>Email: {{ customer.email }}</p>
+                </div>
+                <div class="card card-body hidden mt-3" id="update-form">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+                    <h5>Completed orders</h5>
+                    <hr>
+                    {% for completed_order in completed_orders %}
+                        <div class="col-md mb-5">
+                            Order(#{{ completed_order }}) by {{ completed_order.customer }}
+                            <p style="margin: 0">Transaction id: {{ completed_order.transaction_id }}</p>
+                            <p style="margin: 0">Date ordered: {{ completed_order.date_ordered }}</p>
+                            <div class="cart-row mt-1">
+                                <div style="flex:2"></div>
+                                <div style="flex:2"><strong>Item</strong></div>
+                                <div style="flex:1"><strong>Price</strong></div>
+                                <div style="flex:1"><strong>Quantity</strong></div>
+                                <div style="flex:1"><strong>Total</strong></div>
+                            </div>
+                            {% for item in items %}
+                                {% if item.order == completed_order %}
+                                    <div class="cart-row mt-2 mb-2">
+                                        <div style="flex:2"><img class="row-image" src="{{ item.product.imageURL }}"
+                                                                 alt=""></div>
+                                        <div style="flex:2"><p>{{ item.product.name }}</p></div>
+                                        <div style="flex:1"><p>{{ item.product.price|floatformat:2 }} USD</p></div>
+                                        <div style="flex:1">
+                                            <p class="quantity">{{ item.quantity }}</p>
+                                        </div>
+                                        <div style="flex:1"><p>{{ item.get_total }} USD</p></div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <p style="margin: 0">Items quantity: <b>{{ completed_order.get_cart_items }}</b></p>
+                            <p style="margin: 0">Total: <b>{{ completed_order.get_cart_total }} USD</b></p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('update-customer').addEventListener('click', function (e) {
+            document.getElementById('update-form').classList.remove('hidden')
+        })
+    </script>
+
+{% endblock %}

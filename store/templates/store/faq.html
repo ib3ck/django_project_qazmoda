@@ -1,0 +1,35 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h2 class="about__faq m-2">Frequently Asked Questions About Us</h2>
+        <div class="row mt-3 mb-5">
+            {% for i in index %}
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-2 mb-2 p-5">
+                    <div class="about__question">
+                        <h4 class="about__question__title">What is this website?</h4>
+                        <p class="about__question__content"><b>qazMODA</b> is an online store where you can buy clothes
+                            for
+                            all your family from more than 100 different brands.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-2 mb-2">
+                    <div class="about__question">
+                        <h4 class="about__question__title">Are the products original?</h4>
+                        <p class="about__question__content">We have agreement with more than 100 original certified
+                            brands
+                            for selling and exporting their products.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-2 mb-2">
+                    <div class="about__question">
+                        <h4 class="about__question__title">How do we get the deliver?</h4>
+                        <p class="about__question__content">We deliver the products all over the world and you can get
+                            your
+                            order in less than a week.</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
